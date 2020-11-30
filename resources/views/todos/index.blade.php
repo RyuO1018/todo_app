@@ -23,11 +23,6 @@
 
       <h1 style="margin-top:50px;">Todoリスト</h1>
       <table class="table table-striped" style="max-width:1000px; margin-top:20px;">
-        <!-- <thead>
-          <tr>
-            <th></th><th></th><th></th>
-          </tr>
-        </thead> -->
         <tbody>
           @foreach ($todos as $todo)
             <tr>
@@ -40,7 +35,6 @@
                 </form>
               </td>
 
-              <!-- 削除ボタン -->
               <td>
                 <form action="{{url('/todos', $todo->id)}}" method="post">
                   {{ csrf_field() }}
@@ -48,15 +42,6 @@
                   <button type="submit" class="btn btn-danger">削除</button>
                 </form>
               </td>
-
-              <!-- 削除した際にポップ画面で確認をする -->
-              <!-- <td>
-                <a class="del" data-id="{{ $todo->id }}" href="#">削除</a>
-                <form method="post" action='{{ url('/todos', $todo->id) }}' id="form_{{ $todo->id}}">
-                  {{ csrf_field() }}
-                  {{ method_field('delete') }}
-                </form>
-              </td> -->
             </tr>
           @endforeach
         </tbody>
